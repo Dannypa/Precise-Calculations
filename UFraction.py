@@ -25,7 +25,7 @@ class UFraction:
     # only numbers for now
     def __init__(self, numerator=0.0, denominator=1.0, to_reduce=True):
         if type(numerator) not in {float, int} or type(denominator) not in {float, int}:
-            raise ValueError("Arguments must be float or int")
+            raise ValueError("Arguments must be float or int")  # TODO: Ufraction arguments
         if denominator == 0:
             raise ZeroDivisionError("<<explanation>>")
         while numerator % 1 != 0 or denominator % 1 != 0:
@@ -68,8 +68,8 @@ class UFraction:
         cur_denominator = self.denominator
         new_denominator = lcm(cur_denominator, to_add.denominator)
         cur_numerator = (
-                new_denominator * cur_numerator / cur_denominator +
-                to_add.numerator * new_denominator / to_add.denominator
+                new_denominator * cur_numerator // cur_denominator +
+                to_add.numerator * new_denominator // to_add.denominator
         )
         cur_denominator = new_denominator
         return UFraction(cur_numerator, cur_denominator)
@@ -211,4 +211,5 @@ class UFraction:
 
 
 if __name__ == '__main__':
-    print(UFraction(1, 2) ** (-1))
+    print(UFraction(1.47) == 1.47)
+    print(UFraction(147, 100) == 1.47)
