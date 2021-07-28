@@ -1,2 +1,2 @@
-# Presice-Calculations
-Some python modules for presice calculations
+# Precise-Calculations
+Some python modules for precise calculations
